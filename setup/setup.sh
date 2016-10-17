@@ -1,6 +1,17 @@
 #!/bin/bash
-
 cd $HOME
+
+if type [ ! git 2 > /dev/null 2>&1 ]; then
+    if type apt-get 2 > /dev/null 2>&1; then
+        sudo apt-get update
+        sudo apt-get install git
+    elif type brew 2 > /dev/null 2>&1;then
+        brew update
+        brew install git
+else
+    
+
+
 mkdir .vim
 mkdir .vim/dein
 mkdir .vim/ftplugin
