@@ -1,13 +1,12 @@
 #!/bin/bash
 
 cd $HOME
-mkdir dotfiles
 mkdir .vim
 mkdir .vim/dein
 mkdir .vim/ftplugin
 mkdir .vim/colors
-cd dotfiles
 git clone 'https://github.com/tukumo/dotfiles'
+cd dotfiles
 ln -s .vimrc ~/.vimrc
 ln -s .zshrc ~/.zshrc
 ln -s dein.toml ~/.vim/dein/dein.toml
