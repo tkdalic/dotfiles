@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cd $HOME
 mkdir dotfiles
 mkdir .vim
