@@ -1,5 +1,6 @@
 cd $HOME
 mkdir dotfiles
+mkdir .vim
 mkdir .vim/dein
 mkdir .vim/ftplugin
 mkdir .vim/colors
