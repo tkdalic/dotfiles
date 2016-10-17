@@ -8,7 +8,8 @@ if type [ ! git 2 > /dev/null 2>&1 ]; then
     elif type brew 2 > /dev/null 2>&1;then
         brew update
         brew install git
-else
+    fi
+fi
     
 
 
