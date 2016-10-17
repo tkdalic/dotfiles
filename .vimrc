@@ -17,6 +17,8 @@ set backspace=indent,eol,start
 "不可視文字の可視化
 set list
 set listchars=trail:-,nbsp:%,eol:↲
+"タブ生成
+noremap <C-T> :tabnew<CR>
 "タブ移動
 nnoremap <S-Tab> gt
 nnoremap <Tab><Tab> gT
@@ -245,7 +247,7 @@ let g:unite_enable_start_insert=1
 " バッファ一覧
 noremap <C-P> :Unite buffer<CR>
 " ファイル一覧
-noremap <C-N> :Unite -buffer-name=file file<CR>
+noremap <C-N> :Unite file file/new directory/new<CR>
 " 最近使ったファイルの一覧
 noremap <C-Z> :Unite file_mru<CR>
  
@@ -279,5 +281,7 @@ if has('win32') || has('win64')
 else
     call unite#custom#substitute('file', '^;v', '~/.vim/')
 endif
+
+noremap <C-G> :Gstatus<CR>
 
 filetype plugin indent on
