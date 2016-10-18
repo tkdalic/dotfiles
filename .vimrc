@@ -3,9 +3,6 @@
 
 "自分で追加
 "
-colorscheme hybrid
-set background=dark
-syntax enable
 
 "マウス
 set mouse=a
@@ -284,5 +281,9 @@ else
 endif
 
 noremap <C-G> :Gstatus<CR>
+
+colorscheme hybrid
+set background=dark
+syntax enable
 
 filetype plugin indent on
