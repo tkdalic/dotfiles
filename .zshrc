@@ -162,4 +162,8 @@ case ${OSTYPE} in
         ;;
 esac
 
-# vim:set ft=zsh:
+export PYENV_ROOT=$HOME/.pyenv
+export PYENV_ROOT=$HOME/.pyenv
+eval "$(pyenv init -)"
+
+ #vim:set ft=zsh:

@@ -3,7 +3,8 @@
 
 "自分で追加
 "
-
+noremap ; :
+noremap : ;
 "マウス
 set mouse=a
 set ttymouse=xterm2
@@ -18,7 +19,6 @@ set listchars=trail:-,nbsp:%,eol:↲
 noremap <C-T> :tabnew<CR>
 "タブ移動
 nnoremap <S-Tab> gt
-nnoremap <Tab><Tab> gT
 for i in range(1, 9)
     execute 'nnoremap <Tab>' . i . ' ' . i . 'gt'
 endfor
