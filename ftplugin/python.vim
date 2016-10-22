@@ -1,7 +1,7 @@
 " <F5>で編集中のファイルを実行
 " MATLABと同じショートカット
 
-nnoremap <F5> :call EXEC_SCRIPT()<ENTER>
+noremap <F5> :call EXEC_SCRIPT()<ENTER>
 function! EXEC_SCRIPT()
     :!echo "====================";python3 %;echo "===================="
 endfunction
@@ -32,4 +32,4 @@ function! Autopep8()
 endfunction
 
 "F7で自動修正
-autocmd FileType python nnoremap <F7> :call Autopep8()<CR>
+noremap <F7> :call Autopep8()<CR>
