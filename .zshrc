@@ -161,8 +161,6 @@ case ${OSTYPE} in
         alias ls='ls -F --color=auto'
         ;;
 esac
-
-export PYENV_ROOT=$HOME/.pyenv
 export PYENV_ROOT=$HOME/.pyenv
 eval "$(pyenv init -)"
 
