@@ -11,7 +11,7 @@ autocmd BufWritePre * %s/\s\+$//e
 set mouse=a
 set ttymouse=xterm2
 "行間移動用
-set whichwrap=b,s,<,>,[,] 
+set whichwrap=b,s,<,>,[,]
 "バックスペース
 set backspace=indent,eol,start
 "不可視文字の可視化
@@ -140,7 +140,7 @@ function! s:mkdir(dir, force)
 endfunction
 
 set tabline=%!MyTabLine()
- 
+
 function! MyTabLine()
   let s = ''
   for i in range(tabpagenr('$'))
@@ -150,41 +150,41 @@ function! MyTabLine()
     else
       let s .= '%#TabLine#'
     endif
- 
+
     " set the tab page number (for mouse clicks)
     let s .= '%' . (i + 1) . 'T'
- 
+
     " the label is made by MyTabLabel()
     let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
   endfor
- 
+
   " after the last tab fill with TabLineFill and reset tab page nr
   let s .= '%#TabLineFill#%T'
- 
+
   " right-align the label to close the current tab page
   if tabpagenr('$') > 1
     let s .= '%=%#TabLine#%999XClose'
   endif
- 
+
   return s
 endfunction
- 
+
 let g:use_Powerline_dividers = 1
- 
+
 function! MyTabLabel(n)
     let buflist = tabpagebuflist(a:n)
     let winnr = tabpagewinnr(a:n)
     let altbuf = bufname(buflist[winnr - 1])
- 
+
     " $HOME を消す
     let altbuf = substitute(altbuf, expand('$HOME/'), '', '')
- 
+
     " カレントタブ以外はパスを短くする
     if tabpagenr() != a:n
         let altbuf = substitute(altbuf, '^.*/', '', '')
         let altbuf = substitute(altbuf, '^.\zs.*\ze\.[^.]\+$', '', '')
     endif
- 
+
     " vim-powerline のグリフを使う
     if g:use_Powerline_dividers
         let dividers = g:Pl#Parser#Symbols[g:Powerline_symbols].dividers
@@ -194,10 +194,10 @@ function! MyTabLabel(n)
     else
         let altbuf = '|' . altbuf . '|'
     endif
- 
+
     " タブ番号を付加
     let altbuf = a:n . ':' . altbuf
- 
+
     return altbuf
 endfunction
 
@@ -250,7 +250,7 @@ noremap <C-P> :Unite buffer<CR>
 noremap <C-N> :Unite file file/new directory/new<CR>
 " 最近使ったファイルの一覧
 noremap <C-Z> :Unite file_mru<CR>
- 
+
 " ウィンドウを分割して開く
 au FileType unite nnoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
 au FileType unite inoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
@@ -265,7 +265,7 @@ au FileType unite call s:unite_my_settings()
     function! s:unite_my_settings()
     " Overwrite settings.
 endfunction
- 
+
 " 様々なショートカット
 call unite#custom#substitute('file', '\$\w\+', '\=eval(submatch(0))', 200)
 call unite#custom#substitute('file', '^@@', '\=fnamemodify(expand("#"), ":p:h")."/"', 2)
@@ -274,7 +274,7 @@ call unite#custom#substitute('file', '^;r', '\=$VIMRUNTIME."/"')
 call unite#custom#substitute('file', '^\~', escape($HOME, '\'), -2)
 call unite#custom#substitute('file', '\\\@<! ', '\\ ', -20)
 call unite#custom#substitute('file', '\\ \@!', '/', -30)
- 
+
 if has('win32') || has('win64')
     call unite#custom#substitute('file', '^;p', 'C:/Program Files/')
     call unite#custom#substitute('file', '^;v', '~/vimfiles/')
@@ -360,7 +360,7 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
- 
+
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
@@ -368,16 +368,20 @@ imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
 \: "\<TAB>"
- 
+
 " For snippet_complete marker.
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
 
-autocmd FileType python setlocal completeopt-=preview #ポップアップを表示しない
+autocmd FileType python setlocal completeopt-=preview
+"ポップアップを表示しない
 
 colorscheme hybrid
 set background=dark
 syntax enable
 
 filetype plugin indent on
+
+autocmd BufNewFile *.tex 0r $HOME/dotfiles/template/tex.tex
+autocmd BufNewFile *.py 0r $HOME/dotfiles/template/python.py

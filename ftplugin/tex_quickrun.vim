@@ -1,3 +1,4 @@
+
 "起動時にevince起動
 autocmd VimEnter * :!evince %:p:r.pdf &
 
