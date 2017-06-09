@@ -49,13 +49,8 @@ repo = 'tpope/vim-fugitive'
 repo = 'w0ng/vim-hybrid'
 
 [[plugins]]
-repo = 'lervag/vimtex'
-
-[[plugins]]
-repo = 'thinca/vim-quickrun'
-
-[[plugins]]
 repo = 'Shougo/neosnippet'
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
+

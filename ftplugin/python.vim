@@ -3,9 +3,10 @@
 
 noremap <F5> :call EXEC_SCRIPT()<ENTER>
 function! EXEC_SCRIPT()
-    :!echo "====================";python3 %;echo "===================="
+    :!echo "====================";python %;echo "===================="
 endfunction
 
+let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
 function! Preserve(command)
     " Save the last search.
@@ -26,6 +27,7 @@ function! Preserve(command)
     " Restore the previous cursor position.
     call setpos('.', cursor_position)
 endfunction
+
 
 function! Autopep8()
     call Preserve(':silent %!autopep8 -')

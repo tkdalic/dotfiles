@@ -2,6 +2,10 @@
 
 
 "自分で追加
+"クリップボード
+set clipboard+=unnamed,autoselect
+"updatetime
+set updatetime=1000
 "コロンの変更
 noremap ; :
 noremap : ;

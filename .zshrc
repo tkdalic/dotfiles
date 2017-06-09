@@ -5,6 +5,7 @@
 export LANG=ja_JP.UTF-8
 
 
+set synmaxcol=200
 # 色を使用出来るようにする
 autoload -Uz colors
 colors
@@ -161,7 +162,25 @@ case ${OSTYPE} in
         alias ls='ls -F --color=auto'
         ;;
 esac
+
+
 export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
 eval "$(pyenv init -)"
+export PYTHONPATH=/Users/rikutakada/.pyenv/versions/3.6.1/lib/python3.6/site-packages/:$PYTHONPATH
+
+eval "$(rbenv init -)"
 
  #vim:set ft=zsh:
+ #
+if [ -x "`which go`" ]; then
+      export GOROOT=`go env GOROOT`
+      export GOPATH=$HOME/code/go-local
+      export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+fi
+
+export OUTPUT=~/Programs/NLP100_output/
+alias bpush='python /Users/rikutakada/dotfiles/bpush.py'
+export PGDATA=/usr/local/var/postgres
+
+alias vsh='vagrant ssh'
