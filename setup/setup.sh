@@ -6,6 +6,7 @@ mkdir .vim
 git clone 'https://github.com/tukumo/dotfiles'
 cd dotfiles
 ln -s ~/dotfiles/.vimrc ~
+ln -s ~/dotfiles/.gitconfig ~
 ln -s ~/dotfiles/.zshrc ~
 ln -s ~/dotfiles/.latexmkrc ~
 ln -s ~/dotfiles/dein ~/.vim

@@ -6,32 +6,23 @@ function! EXEC_SCRIPT()
     :!echo "====================";python %;echo "===================="
 endfunction
 
-let g:syntastic_python_checkers = ['pyflakes', 'pep8']
-
-function! Preserve(command)
-    " Save the last search.
-    let search = @/
-    " Save the current cursor position.
-    let cursor_position = getpos('.')
-    " Save the current window position.
-    normal! H
-    let window_position = getpos('.')
-    call setpos('.', cursor_position)
-    " Execute the command.
-    execute a:command
-    " Restore the last search.
-    let @/ = search
-    " Restore the previous window position.
-    call setpos('.', window_position)
-    normal! zt
-    " Restore the previous cursor position.
-    call setpos('.', cursor_position)
-endfunction
-
-
-function! Autopep8()
-    call Preserve(':silent %!autopep8 -')
-endfunction
-
 "F7で自動修正
 noremap <F7> :call Autopep8()<CR>
+"diff画面の非表示
+let g:autopep8_disable_show_diff=1
+
+"コードチェック
+let g:syntastic_python_checkers = ["flake8"]
+
+"------------------------------------------------------------
+" jedi-vim Setting
+
+setlocal omnifunc=jedi#completions
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+endif
+
+let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
+"-----------------------------------------------------------

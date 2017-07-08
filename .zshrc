@@ -39,6 +39,7 @@ zstyle ':zle:*' word-style unspecified
 # 補完機能を有効にする
 autoload -Uz compinit
 compinit
+zstyle ':completion:*:default' menu select=2
 
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -52,6 +53,10 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
 
 # ps コマンドのプロセス名補完
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
+
+# セパレータを設定する
+zstyle ':completion:*' list-separator '-->'
+zstyle ':completion:*:manuals' separate-sections true
 
 
 ########################################
@@ -171,16 +176,22 @@ export PYTHONPATH=/Users/rikutakada/.pyenv/versions/3.6.1/lib/python3.6/site-pac
 
 eval "$(rbenv init -)"
 
- #vim:set ft=zsh:
- #
-if [ -x "`which go`" ]; then
-      export GOROOT=`go env GOROOT`
-      export GOPATH=$HOME/code/go-local
-      export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-fi
-
-export OUTPUT=~/Programs/NLP100_output/
-alias bpush='python /Users/rikutakada/dotfiles/bpush.py'
-export PGDATA=/usr/local/var/postgres
+export GOPATH=$HOME/.go
+export PATH="$GOPATH/bin:$HOME/.goenv/bin:$PATH"
+eval "$(goenv init -)"
 
 alias vsh='vagrant ssh'
+
+
+# pip zsh completion start
+function _pip_completion {
+  local words cword
+  read -Ac words
+  read -cn cword
+  reply=( $( COMP_WORDS="$words[*]" \
+             COMP_CWORD=$(( cword-1 )) \
+             PIP_AUTO_COMPLETE=1 $words[1] ) )
+}
+compctl -K _pip_completion pip
+# pip zsh completion end
+

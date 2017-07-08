@@ -13,6 +13,9 @@ repo = 'vim-jp/vimdoc-ja'
 repo = 'Shougo/neocomplete.vim'
 
 [[plugins]]
+repo = 'Shougo/neocomplcache.vim'
+
+[[plugins]]
 repo = 'Shougo/unite.vim'
 
 [[plugins]]
@@ -54,3 +57,5 @@ repo = 'Shougo/neosnippet'
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
+[[plugins]]
+repo = 'scrooloose/syntastic'
