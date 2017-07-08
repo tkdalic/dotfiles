@@ -42,3 +42,7 @@ on_i = 1
 [[plugins]]
 repo='fatih/vim-go'
 on_ft='go'
+
+[[plugins]]
+repo='nsf/gocode'
+on_ft='go'
