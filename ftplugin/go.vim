@@ -1,9 +1,8 @@
 " <F5>で編集中のファイルを実行
-" MATLABと同じショートカット
-"
+" MATLABと同じショートカット "
 set noexpandtab
 set tabstop=4
-set shiftwidth=2
+set shiftwidth=4
 
 " 実行と整形
 noremap <F5> :GoRun<ENTER>
@@ -19,4 +18,4 @@ let g:go_gocode_unimported_packages = 1
 let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
 
 "補完の詳細を表示しない
-set completeopt-=preview
+set completeopt=menu
