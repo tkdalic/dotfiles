@@ -6,9 +6,6 @@
 set clipboard+=unnamed,autoselect
 "updatetime
 set updatetime=1000
-"コロンの変更
-noremap ; :
-noremap : ;
 "行末スペースを取り除く
 autocmd BufWritePre * %s/\s\+$//e
 "マウス
@@ -382,11 +379,13 @@ if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
 
-autocmd FileType python setlocal completeopt-=preview
 "ポップアップを表示しない
+autocmd FileType python setlocal completeopt-=preview
 
-colorscheme hybrid
+set t_Co=256
+
 set background=dark
+colorscheme hybrid
 syntax enable
 
 filetype plugin indent on

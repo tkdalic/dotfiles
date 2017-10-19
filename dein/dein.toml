@@ -49,9 +49,6 @@ repo = 'kmnk/vim-unite-giti'
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
-repo = 'w0ng/vim-hybrid'
-
-[[plugins]]
 repo = 'Shougo/neosnippet'
 
 [[plugins]]
@@ -59,3 +56,6 @@ repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'scrooloose/syntastic'
+
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
