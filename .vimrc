@@ -1,6 +1,5 @@
 "setting
 
-
 "自分で追加
 "クリップボード
 set clipboard+=unnamed,autoselect
@@ -321,7 +320,7 @@ function! s:my_cr_function()
   "return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 " <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB>  pumvisible() ? "\<Cfn>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
@@ -393,3 +392,5 @@ filetype plugin indent on
 autocmd BufNewFile *.tex 0r $HOME/dotfiles/template/tex.tex
 autocmd BufNewFile *.py 0r $HOME/dotfiles/template/python.py
 
+tnoremap <silent> <ESC> <C-\><C-n>
+noremap <C-n> :75vs<CR>:ter++close ++curwin<CR>

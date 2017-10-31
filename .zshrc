@@ -96,6 +96,7 @@ setopt auto_cd
 
 # cd したら自動的にpushdする
 setopt auto_pushd
+
 # 重複したディレクトリを追加しない
 setopt pushd_ignore_dups
 
@@ -113,6 +114,12 @@ setopt hist_reduce_blanks
 
 # 高機能なワイルドカード展開を使用する
 setopt extended_glob
+
+#スペルを訂正する
+setopt correct
+
+# = 以降も補完する（例：--option=value）
+setopt magic_equal_subst
 
 ########################################
 # キーバインド
@@ -172,7 +179,6 @@ esac
 export PYENV_ROOT=$HOME/.pyenv
 export PATH=$PYENV_ROOT/bin:$PATH
 eval "$(pyenv init -)"
-export PYTHONPATH=/Users/rikutakada/.pyenv/versions/3.6.1/lib/python3.6/site-packages/:$PYTHONPATH
 
 eval "$(rbenv init -)"
 
@@ -196,3 +202,5 @@ compctl -K _pip_completion pip
 # pip zsh completion end
 
 alias sr='screen -r'
+
+export TERM=screen-256color

@@ -46,3 +46,8 @@ on_ft='go'
 [[plugins]]
 repo='nsf/gocode'
 on_ft='go'
+
+# C/C++
+[[plugins]]
+repository = 'justmao945/vim-clang'
+on_ft = ['c', 'cpp']
