@@ -180,4 +180,4 @@ alias sr='screen -r'
 
 export TERM=screen-256color
 
-soure .zshrc_person
+[ -f ~/.zshrc_person ] && source ~/.zshrc_person
