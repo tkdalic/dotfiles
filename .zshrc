@@ -176,31 +176,8 @@ case ${OSTYPE} in
 esac
 
 
-export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
-eval "$(pyenv init -)"
-
-eval "$(rbenv init -)"
-
-export GOPATH=$HOME/.go
-export PATH="$GOPATH/bin:$HOME/.goenv/bin:$PATH"
-eval "$(goenv init -)"
-
-alias vsh='vagrant ssh'
-
-
-# pip zsh completion start
-function _pip_completion {
-  local words cword
-  read -Ac words
-  read -cn cword
-  reply=( $( COMP_WORDS="$words[*]" \
-             COMP_CWORD=$(( cword-1 )) \
-             PIP_AUTO_COMPLETE=1 $words[1] ) )
-}
-compctl -K _pip_completion pip
-# pip zsh completion end
-
 alias sr='screen -r'
 
 export TERM=screen-256color
+
+soure .zshrc_person
