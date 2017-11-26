@@ -1,5 +1,5 @@
-sudo apt-get install git gcc make openssl libssl-dev libbz2-dev libreadline-dev libsqlite3-dev
-sudo git clone git://github.com/yyuu/pyenv.git ~/.pyenv
+sudo apt-get install git gcc make openssl libssl-dev libbz2-dev libreadline-dev libsqlite3-dev tk-dev
+git clone git://github.com/yyuu/pyenv.git ~/.pyenv
 
 echo '
 export PYENV_ROOT=$HOME/.pyenv
