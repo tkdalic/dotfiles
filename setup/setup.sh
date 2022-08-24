@@ -2,10 +2,9 @@
 cd $HOME
 
 
-mkdir .vim
-git clone 'https://github.com/tukumo/dotfiles'
-cd dotfiles
-ln -s ~/dotfiles/.zshrc ~
+git clone 'https://github.com/tukumo/dotfiles' ~/.dotfiles
+cd ~/.dotfiles
+ln -s ~/.dotfiles/.zshrc ~
 
 if [[ $(command -v brew) == "" ]]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
